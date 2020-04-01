@@ -13,6 +13,17 @@ CSS3 |
 HTML5 |
 Pycharm as Working Software  | 
 
+### Developers
+- Chirag Goel -Student of Amity School of Engineering and Technology(B.Tech. CSE)
+
+        Email Address - 'chirag.goel360@gmail.com'
+- Rahul Kushwaha -Student of Amity School of Engineering and Technology(B.Tech. CSE)
+
+        Email Address - 'gamecreator762@gmail.com'
+- Tanya Varshney -Student of Amity School of Engineering and Technology(B.Tech. CSE)
+
+        Email Address - 'varshneytanya16@gmail.com'
+
 ![Image ](https://i.ibb.co/rGV6mxX/3.png)
 ![Image ](https://i.ibb.co/4NMb1CC/1.png)
 ![Image ](https://i.ibb.co/9Y7t68L/2.png)

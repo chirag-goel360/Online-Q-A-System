@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<head>
+    <style>
+    body
+     {
+        background-image: url("https://i.ibb.co/Jsd7ZwK/33400.jpg");
+        font-family: monospace;
+     }
+
+  .overlay
+  {
+  margin-top:15%;
+  display:block;
+  z-index:2;
+  padding:100px;
+  position: absolute;
+  top: -10;
+  bottom: 0;
+  left:0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: opacity 500ms;
+  visibility: visible;
+  opacity: 1;
+  margin-bottom:-4%;
+}
+.popup
+ {
+  margin-top:10px;
+  margin-left:auto;
+  margin-right:auto;
+  padding-bottom: 1px;
+  background-image: url("http://www.pptbackgrounds.org/uploads/violet-blestyashki-line-backgrounds-wallpapers.jpg") ;
+  background-size:cover;
+  border-radius: 5px;
+  width: 100%;
+  height:50%;
+  position:relative;
+}
+.popup h2
+{
+  margin-top: 0px;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close
+{
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+.popup .close:hover
+{
+  color: #06D85F;
+}
+.content
+ {
+    position:relative;
+    text-align:center;
+ }
+
+textarea
+{
+    border:3px solid green;
+    font-size:20px;
+}
+.btn
+     {
+        outline:none;
+        background-color:blue;
+        text-align:center;
+        color:white;
+        font-size:15px;
+        border-radius:7px;
+        width:150px;
+        cursor:pointer;
+        padding:10px;
+        margin-right:auto;
+        margin-left:90px;
+        margin-top:-5px;
+        position:relative;
+        display:block;
+        transition-duration:0.2s;
+     }
+    .btn:hover
+    {
+        background-color:red;
+        color:white;
+        transform: translateY(-6px);
+        box-shadow: 0px 15px 20px
+        rgba(226, 106, 106, 1);
+
+    }
+    type
+    {
+        font-size:40px;
+    }
+    .overlayq
+    {
+    z-index:2;
+    padding:100px;
+    position: absolute;
+    top: 0;
+    left:0;
+    bottom:0;
+    right:0;
+    background: rgba(0, 0, 0, .7);
+    transition: opacity 500ms;
+    visibility: visible;
+    opacity: 1;
+    }
+    .overlayq:target
+     {
+    visibility: visible;
+    opacity: 1;
+    }
+ .popupq
+    {
+  top:-40px;
+  margin-left:auto;
+  margin-right:auto;
+  background-image: url("http://genchi.info/image/backgrounds-images-17.jpg");
+  background-size:cover;
+  border-radius: 5px;
+  width: 100%;
+  position: relative;
+  min-height:20%;
+  display:block;
+  transition: .2s;
+  word-wrap:break-word;
+  animation: myfirst 5s;
+}
+@keyframes myfirst {
+    0%   { left:0px; top:-90px;}
+  10%  { left:0px; top:-60px;}
+  20% { left:0px; top:-40px;}
+}
+.popupq h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popupq .closeq
+{
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+.popupq .closeq:hover {
+  color: #06D85F;
+}
+
+.popupq .contentq
+{
+    position:relative;
+    top:70px;
+    text-align:center;
+}
+textareaq
+{
+
+    border:3px solid green;
+    font-size:20px;
+}
+
+typeq
+    {
+        text-shadow:2px 2px 4px black;
+        color:white;
+        margin-left:5px;
+        margin-top:4px;
+        font-size:40px;
+        text-align:left;
+        position:relative;
+        display:block;
+        margin-bottom:2px;
+    }
+
+ </style>
+</head>
+<body>
+                <div class="overlayq">
+                                <div class="popupq">
+		                         <i><center><b><typeq>Question : {{ qw.question }}</typeq></b></center></i>
+                                    <br>
+                                    <center><b><typeq style = "font-size:20px;">Topic: {{ qw.topic }} || Asked By: {{ qw.name }} </typeq></b></center>
+                                </div>
+                <div class="overlay">
+                                <div class="popup">
+		                        <center><b><br><type style="text-align:center;text-shadow:2px 2px 4px black;color:white;font-size:40px;">Type Your Answer</type></b></center>
+                                ``<a class="close" href="/login/mainpage/">&times;</a>
+                                    <div class="content">
+                                    <form action="" method="post">
+                                        {% csrf_token %}
+                                        <textarea required name = "answer"   rows="8" cols="100" placeholder="Type Your Answer"></textarea>
+                                        <input style="margin-left:auto;margin-right:auto;" type="submit" value="SUBMIT ANSWER" class="btn">
+                                    </form>
+                                    </div>
+                                </div>
+                </div>
+</div>
+</body>
+</html>

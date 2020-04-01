@@ -1,0 +1,48 @@
+<html>
+<head>
+    <style>
+    body
+    {
+        color:white;
+        background-image: url("https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    }
+    </style>
+    <body>
+       {% if mess == 'wrongformat' %}
+            <center><h1 class="top"> Enter Sufficient </h1></center>
+       {% elif mess == 'wrongpassword' %}
+            <center><h1 class="top"> Incorrect Password </h1></center>
+       {% elif mess == 'wrongemail' %}
+            <center><h1 class="top"> Incorrect Email </h1></center>
+       {% elif mess == 'emailtaken' %}
+            <center><h1 class="top">{{ email }}<br>Email already taken</h1></center>
+        {% elif mess == 'phonenotaken' %}
+            <center><h1 class="top">{{ email }}<br>Phone Number Already Taken</h1></center>
+       {% elif mess == 'loggedout' %}
+            <center><h1 class="top">{{ email }}<br>Successfully Logged Out</h1></center>
+            <form action = "/">
+                 <center><button  class="top">HOMEPAGE</button> </center>
+            </form>
+       {% elif mess == 'Password has been sent to your email' %}
+            <center><h1 class="top">Password has been sent to your email</h1></center>
+            <form action = "/">
+                 <center><button  class="top">HOMEPAGE</button> </center>
+            </form>
+        {% elif mess == 'accountcreated' %}
+            <center><h1 class="top"><br>Account Successfully Created</h1></center>
+            <form action = "/">
+                 <center><button  class="top">HOMEPAGE</button> </center>
+            </form>
+       </body>
+       {% endif %}
+</head>
+<style>
+    .top{
+            display:block;
+            bottom:-200px;
+            text-align:center;
+            font-size:40px;
+            position:relative;
+         }
+</style>
+</html>

@@ -1,0 +1,170 @@
+    <html>
+    <head>
+        <title>Register Yourself</title>
+    </head>
+    <style>
+    body
+    {
+        background-image:url("https://i.ibb.co/Jsd7ZwK/33400.jpg");
+        background-size: 100% ;
+        background-repeat: no-repeat;
+    }
+    .simple-form
+    {
+        text-align: center;
+        margin:40px 300px;
+    }
+    #registration
+    {
+        background-image:url("http://bethellonedell.com/wp-content/uploads/blue-gradient-background.png");
+    	margin-left: auto;
+    	margin-right: auto;
+    	margin-top:1%;
+        width: 520px;
+        opacity: 0.7;
+        padding: 10px 20px;
+        border-radius:5%;
+    }
+    .textbox
+    {
+        width: 200px;
+        padding: 10px;
+        padding-left:20px;
+        border-radius: 5px;
+    }
+     .textbox1
+    {
+        width: 300px;
+        padding: 10px;
+        padding-left:20px;
+        border-radius: 5px;
+    }
+    .selectionbox
+    {
+        width:100px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .text
+    {
+        float:left;
+        font-size:20px;
+        color:white;
+    }
+    .but
+     {
+        margin-bottom:0px;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin-left: auto;
+        margin-right:auto;
+        display:flex;
+        transition-duration: 0.2s;
+        cursor: pointer;
+        border-radius: 45px;
+        box-shadow: 0px 8px 15px
+        rgba(0, 0, 0, 0.3);
+        letter-spacing: 2.5px;
+        outline: none;
+        margin-top:0px;
+        position: relative;
+    }
+    .buttonc
+     {
+        background-color: white;
+        color: black;
+      }
+     .buttonc:hover
+      {
+         background-color: red;
+         color: white;
+         transform: translateY(-6px);
+         box-shadow: 0px 15px 20px
+         rgba(226, 106, 106, 1);
+      }
+    </style>
+    <body>
+       <center>
+        <form class="simple-form" action="" id="registration" method="post">
+            {% csrf_token %}
+            <center><font size=6 color=white><b>Registration Page</b></font></center><br>
+            <table cellpadding="3" width="140%" align="center" cellspacing="10">
+            <tr>
+                <td>
+                    <font class="text" >First Name</font>
+                </td>
+                <td>
+              <input type="text" required minlength="1" maxlength="10" pattern="[A-Za-z]+" title="Must be alphabet only" name="fname" class="textbox"  placeholder="First Name">
+               </td>
+            </tr>
+             <tr>
+                <td>
+                    <font class="text" >Middle Name</font>
+                </td>
+                <td>
+                 <input type="text" minlength="1" maxlength="10" pattern="[A-Za-z]+" title="Must be alphabet only" name="mname" class="textbox" placeholder="Middle Name">
+               </td>
+            </tr>
+                <tr>
+                <td>
+                    <font class="text" >Last Name</font>
+                </td>
+                <td>
+                    <input type="text" minlength="1" maxlength="10" pattern="[A-Za-z]+" title="Must be alphabet only" name="lname" class="textbox"  placeholder="Last Name">
+               </td>
+            </tr>
+              <tr>
+                <td>
+                     <font class="text" >Email ID</font>
+                </td>
+                <td>
+                    <input type="text" required minlength="10" maxlength="30" title="The domain portion of the email address is invalid (the portion after the @)." pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{3,})+$" name="email" class="textbox1"  placeholder="Email Address">
+               </td>
+            </tr>
+           <tr>
+                <td>
+                     <font class="text" >Gender</font>
+                </td>
+                <td>
+                      <select class="selectionbox" name="gender">
+                        <option>Male</option>
+                          <option>Female</option>
+                         <option>Other</option></select>
+               </td>
+            </tr>
+                  <tr>
+                <td>
+                     <font class="text" >Phone Number</font>
+                </td>
+                <td>
+
+                     <select class="selectionbox">
+                     <option>+91</option>
+                     <option>+92</option>
+                        <option>+93</option>
+                         <option>+94</option>
+                        <option>+95</option>
+                         <option>+96</option></select>
+                     <input type="tel" name="phone" maxlength="10" size="10" pattern="^\d{10}" title="Must be of 10 digit" class="textbox" placeholder="Phone Number">
+               </td>
+            </tr>
+                    <tr>
+                <td>
+                     <font class="text" >Password</font>
+                </td>
+                <td>
+                    <input type="password" required name="password" class="textbox1" placeholder="Enter Password">
+
+               </td>
+            </tr>
+                </table>
+            <input type="submit" value="REGISTER" class="but buttonc"><br>
+            </form>
+            <form action="/">
+                <p><button class="but buttonc"> Go to Homepage </button></p>
+            </form>
+       </center>
+
+    </body>
+</html>

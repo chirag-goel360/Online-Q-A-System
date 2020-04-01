@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body
+    {
+        width:100%;
+        background: url("https://i.ibb.co/Jsd7ZwK/33400.jpg");
+        background-size:100%;
+    }
+    font
+    {
+        color:white;
+        font-size:18px;
+    }
+    #form
+    {
+        border:5px solid black;
+        border-radius:5%;
+        width:450px;
+        height:400px;
+        text-align:center;
+        margin:100px auto;
+        background-image: url("https://image.freepik.com/free-vector/colorful-sunset-gradient-vector-background_1962-597.jpg");
+    }
+    #form h1
+    {
+        color:white;
+    }
+
+    a
+    {
+        color: blue;
+    }
+    #form input
+    {
+        margin-right:20px;
+        border:5px solid red;
+        color:black;
+        padding:1em;
+        margin:8px;
+        background:white;
+        border:2px solid white;
+        border-radius:3%;
+    }
+    #form .text
+    {
+
+        width:200px;
+        height:1px;
+    }
+    #form .submit-button
+    {
+        margin-top:10px;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin-left: auto;
+        margin-right:auto;
+        display:flex;
+        transition-duration: 0.2s;
+        cursor: pointer;
+        border-radius: 45px;
+        letter-spacing: 2.5px;
+        outline: none;
+        position: relative;
+        margin-bottom:20px;
+    }
+    .buttonc:hover
+    {
+        background-color: red;
+        transform: translateY(-4px);
+    }
+    .psw
+    {
+        text-align:center;
+        padding-top:16px;
+        margin-top:20px;
+    }
+</style>
+</head>
+<body>
+<div id="form">
+  <h1>Login</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+             <tr>
+                <td>
+                    <font class="text"><b>Email ID</b></font>
+                </td>
+                <td>
+                    <input style="width:40%;padding-left:2px;" type="text" required minlength="10" maxlength="30" title="The domain portion of the email address is invalid (the portion after the @)." pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{3,})+$" name="email" class="text">
+               </td>
+            </tr>
+        <br>
+         <tr>
+                <td>
+                    <font class="text" ><b>Password</b></font>
+                </td>
+                <td>
+                    <input style= "width:40%;"type="password" required name="password" class="text" >
+
+               </td>
+            </tr>
+        <input type="submit" class="submit-button buttonc"/>
+        <div class="psw"> <a href="forgotpsw/">Forgot password?</a></div>
+    </form>
+    <form action="/">
+        <p><button class="submit-button buttonc"> Go to Homepage </button></p>
+    </form>
+</div>
+</body>
+</html>

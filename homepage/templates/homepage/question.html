@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+     a
+     {
+        font-size:35px;
+     }
+     #form
+     {
+
+        background-image:url("https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+        width:100%;
+        padding-bottom:5px;
+     }
+     #btn
+     {
+        background-color:blue;
+        text-align:center;
+        color:white;
+        font-size:15px;
+        border-radius:7px;
+        width:160px;
+        bottom:-50px;
+        cursor:pointer;
+        padding:10px;
+    }
+
+    #form .info
+    {
+
+        color:#73AD21;
+        text-align:left;
+        position:relative;
+        margin-left:0s%;
+    }
+    textarea
+    {
+
+        font-size:25px;
+        margin-left:19%;
+    }
+     typeq
+    {
+         text-shadow:2px 2px 4px black;
+    }
+    </style>
+</head>
+<body>
+{% if all_users %}
+    {% for w in all_users %}
+        {% if w.status == '1' %}
+    <form id="form" action = "" method = "post">
+    {% csrf_token %}
+    <h1 style="padding-top: 3px; text-align:center; font-size:50px; color:white; text-shadow:4px 4px green;">Ask Question</h1>
+    <div >
+           <h3 style="text-align:left; padding-left:1px; font-size: 35px; color: white;text-shadow:2px 2px 4px black;">Name : {{ w.fname }}</h3>
+            <a style="text-shadow:2px 2px 4px black;color:white" class="info">Write your topic:</a>
+            <input style="outline:none;margin-bottom:4px; margin-top:4px; border-radius: 10px; background: 2px solid #73AD21; width: 30%; margin-left:240px; padding: 10px;" required pattern="[A-Za-z]+" title="Must be alphabet only" type="text" name = "topic">
+    </div>
+    <center>
+    <textarea name = "question" rows="6" cols="100" required minlength="10" maxlength="250" placeholder="Type your Question" style="width:638px; height:329px;"></textarea>
+    <br>
+    <input type="submit" value="SUBMIT QUESTION" id="btn">
+    </center>
+</form>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+</body>
+</html>

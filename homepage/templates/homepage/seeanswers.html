@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body
+     {
+        font-family: sans-serif;
+        background:#C8EFF3;
+     }
+    .btn
+     {
+        outline:none;
+        background-color:blue;
+        text-align:center;
+        color:white;
+        font-size:15px;
+        border-radius:7px;
+        width:150px;
+        cursor:pointer;
+        padding:10px;
+        margin-right:auto;
+        margin-left:90px;
+        bottom:-25px;
+        position:relative;
+        display:block;
+        transition-duration:0.2s;
+     }
+    .btn:hover
+    {
+        background-color:red;
+        color:white;
+        transform: translateY(-6px);
+        box-shadow: 0px 15px 20px
+        rgba(226, 106, 106, 1);
+
+    }
+
+    .overlayq {
+    z-index:2;
+    padding:100px;
+    position: absolute;
+    top: 0;
+    left:0;
+    bottom:0;
+    right:0;
+    background: rgba(0, 0, 0, 0);
+    transition: opacity 500ms;
+    visibility: visible;
+    opacity: 1;
+    }
+.overlayq:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popupq {
+  top:-40px;
+  margin-left:auto;
+  margin-right:auto;
+  background-image: url("http://www.pptbackgrounds.org/uploads/violet-blestyashki-line-backgrounds-wallpapers.jpg");
+  background-size:cover;
+  border-radius: 5px;
+  width: 90%;
+  position: relative;
+  min-height:20%;
+  display:block;
+  transition: .2s;
+  word-wrap:break-word;
+}
+.popupq h2
+{
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popupq .closeq {
+  position: absolute;
+  top: -3px;
+  right: 0px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+.popupq .closeq:hover {
+  color: #06D85F;
+}
+.popupq .content {
+  height: 100px;
+}
+.popupq .contentq
+{
+    position:relative;
+    top:70px;
+    text-align:center;
+}
+textareaq
+{
+    text-shadow:2px 2px 4px black;
+    border:3px solid green;
+    font-size:20px;
+}
+ typeq
+    {
+         text-shadow:2px 2px 4px black;
+        color:white;
+        font-size:40px;
+        text-align:left;
+    }
+      .card
+    {  	    min-height: 10px;
+	    margin-left: 70px;
+	    max-width: 1000px;
+	    background:white;
+	    background-size:cover;
+	    border-radius: 5px;
+	    box-shadow: 0px 5px 5px
+	    rgba(0,1,3,0.4);
+    	position: relative;
+    	margin-top:20px;
+    	animation: myfirst 5s;
+    	padding-bottom:4px;
+    	padding-left:10px;
+    	border-color: black;
+        box-shadow: 0 0 3px black;
+    }
+   .image
+    {
+        float:left;
+        margin-bottom:40%:
+        position:relative;
+        padding-bottom:0px;
+        width:60px;
+        height:60px;
+        margin-top:15px;
+        margin-left:10px;
+        margin-right:20px;
+        border:1px solid black;
+        border-radius:0%;
+    }
+    .box
+    {
+        float:left;
+        margin-left:-10px;
+        width:50%;
+        border:0px solid black;
+    }
+    .ques
+    {
+
+        color:black;
+        position:relative;
+        display:block;
+        margin-top:3px;
+        word-wrap:break-word;
+    }
+    .quesbox
+    {
+        margin-left:92px;
+        width:900px;
+        border:0px solid white;
+    }
+    .abtn
+     {
+
+        outline:none;
+        background-color:DodgerBlue;
+        text-align:center;
+        color:black;
+        font-size:15px;
+        border-radius:0px;
+        width:120px;
+        cursor:pointer;
+        padding:10px;
+        margin-left:auto;
+        margin-bottom:-1px;
+        margin-right:8px;
+        position:relative;
+        display:block;
+        transition-duration:0.2s;
+     }
+    .abtn:hover
+    {
+        background-color:RoyalBlue;
+        color:white;
+        transform: translateY(-6px);
+
+    }
+    .upvotes
+    {
+        color:color;
+        margin-left:auto;
+        position:relative;
+        display:block;
+    }
+
+ </style>
+</head>
+<body>
+
+                        <div class="overlayq">
+                                <div class="popupq">
+		                         <i><center><b><typeq>Question : {{ personasked.question }}</typeq></b></center></i>
+                                    <br>
+                                    <center><b><typeq style = "font-size:20px;">Topic: {{ personasked.topic }} || Asked By: {{ personasked.name }} </typeq></b></center>
+                                    <a class="closeq" href="/login/mainpage/">&times;</a>
+                                </div>
+                             <div class="contentq">
+                                        {% if exists == 'exists' %}
+                                        <center><b><typeq style = "color:white;">All Answers</typeq></b></center>
+                                            {% for w in allanswered %}
+                                                 {% if w.idanswer == personasked.id %}
+                                                 <div class = "card">
+                                                     {% for user in all_users %}
+                                                        {% if user.email == w.email %}
+                                                    <img class="image" src="{{ user.imgpicture }}" alt="Avatar" width="120px" height="90px">
+                                                     {% endif %}
+                                                     {% endfor %}
+                                                <br>
+                                         <div class="box">
+                                        <font style="float:left;">Person Answered: </font><b style="float:left;">{{w.name}}</b>
+                                        <br><font style="float:left;">Date:</font><b style="float:left;">{{w.publish}} </b>
+                                         <font style="margin-left:7px;color:black;float:left;">Upvotes: </font></pre><b style="color:blue;float:left;">{{w.upvotes}}</b>
+                                             <br>
+                                         </div>
+                                                       <form action="{{ w.id }}/">
+                                                    <button type = "submit" class="abtn"><i class="fa fa-thumbs-up"></i>Upvote</button>
+                                                </form>
+                                            <div class="quesbox">
+                                                <hr style="margin-left:0px;">
+                                        <font  class ="ques"><i><b>{{ w.answer }}</b></font> </i>
+		                                  </div>
+                                         </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                        <center><b><typeq style = "color:white;">No Answers</typeq></b></center>
+                                        {% endif %}
+                                    </div>
+                            </div>
+</body>
+</html>

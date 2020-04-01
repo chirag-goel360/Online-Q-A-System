@@ -1,0 +1,95 @@
+
+<html>
+<head>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Leckerli+One);
+body
+{
+    background-image: url("https://i.ibb.co/Jsd7ZwK/33400.jpg");
+}
+
+.font
+{
+    text-align:center;
+    position:relative;
+    display:block;
+    font-size:100px;
+    font-family: "Leckerli One";
+    bottom:-100px;
+}
+
+.button
+ {
+    margin-bottom:40px;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin-left: auto;
+    margin-right:auto;
+    display:flex;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px
+    rgba(0, 0, 0, 0.3);
+    letter-spacing: 2.5px;
+    outline: none;
+    margin-top:10px;
+    position: relative;
+    bottom: -100px;
+}
+
+.buttonc
+{
+    background-color: white;
+    color: black;
+}
+
+.buttonc:hover
+{
+    background-color: red;
+    color: white;
+    transform: translateY(-6px);
+    box-shadow: 0px 15px 20px
+    rgba(226, 106, 106, 1);
+}
+.info
+{
+    position:relative;
+    display:block;
+    margin-top:80px;
+    border:1px solid black;
+    width:15%;
+    margin-left:auto;
+    margin-right:40px;
+}
+.info .dev
+{
+    margin-left:4px;
+    font-size:20px;
+    color:black;
+}
+
+</style>
+</head>
+<body>
+<center><h1  class="font"> Online Q and A System</h1></center>
+     {% if f == 1 %}
+    <form action="login/mainpage/">
+     {% else %}
+    <form action="login/" >
+     {% endif %}
+    <button class="button buttonc">Login</button>
+    </form>
+
+<form action="registration/" >
+    <button class="button buttonc">Create New Account</button>
+</form>
+        <div class="info">
+                   <b><a class="dev">Developed by:(Batch I)</a></b><br>
+                   <a class="dev">Rahul Kushwaha [014]</a><br>
+                   <a class="dev">Tanya Varshney [041]</a><br>
+                   <a class="dev">Chirag Goel [004]</a>
+        </div>
+</body>
+</html>

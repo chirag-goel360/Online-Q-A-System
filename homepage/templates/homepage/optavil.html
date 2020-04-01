@@ -1,0 +1,134 @@
+<html>
+<head>
+        <title>Change Details</title>
+</head>
+  <style>
+    body {
+        background-image:url("https://i.ibb.co/Jsd7ZwK/33400.jpg");
+        background-size: 100% ;
+        background-repeat: no-repeat;
+    }
+    .simple-form
+    {
+        text-align: center;
+        margin:10px 150px;
+    }
+    #registration
+    {
+        background-image:url("http://bethellonedell.com/wp-content/uploads/blue-gradient-background.png");
+    	margin-left: auto;
+    	margin-right: auto;
+    	margin-top:1%;
+        width: 720px;
+        height: 440px;
+        opacity: 1;
+        padding: 2px 4px;
+        padding-right:-10px;
+        border-radius:5%;
+    }
+    .textbox
+    {
+        text-transform:capitalize;
+        width: 200px;
+        padding: 10px;
+        padding-left:20px;
+        border-radius: 5px;
+    }
+     .textbox1
+    {
+        width: 300px;
+        padding: 10px;
+        padding-left:20px;
+        border-radius: 5px;
+    }
+
+    .text
+    {
+        float:left;
+        font-size:20px;
+        color:white;
+    }
+    .but
+     {
+        margin-bottom:0px;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin-left: auto;
+        margin-right:auto;
+        display:block;
+        transition-duration: 0.2s;
+        cursor: pointer;
+        border-radius: 45px;
+        box-shadow: 0px 8px 15px
+        rgba(0, 0, 0, 0.3);
+        letter-spacing: 2.5px;
+        outline: none;
+        margin-top:0px;
+        position: relative;
+    }
+    .buttonc
+     {
+        background-color: white;
+        color: black;
+      }
+     .buttonc:hover
+      {
+         background-color: red;
+         color: white;
+         transform: translateY(-6px);
+         box-shadow: 0px 15px 20px
+         rgba(226, 106, 106, 1);
+      }
+    </style>
+    <body>
+       <center>
+        <form class="simple-form" action="" id="registration" method="post">
+            {% csrf_token %}
+            <center><font size=6 color=white><b>Edit Details</b></font></center><br>
+            <table cellpadding="3" width="140%" align="center" cellspacing="10">
+
+            <tr>
+                <td>
+                    <font class="text" >First Name</font>
+                </td>
+                <td>
+              <input type="text" required minlength="1" maxlength="10" pattern="[A-Za-z]+" title="Must be alphabet only" name="fname" class="textbox"  placeholder="First Name">
+               </td>
+            </tr>
+             <tr>
+                <td>
+                    <font class="text" >Middle Name</font>
+                </td>
+                <td>
+                 <input type="text" minlength="1" maxlength="10" pattern="[A-Za-z]+" title="Must be alphabet only" name="mname" class="textbox" placeholder="Middle Name">
+               </td>
+            </tr>
+                <tr>
+                <td>
+                    <font class="text" >Last Name</font>
+                </td>
+                <td>
+                    <input type="text" minlength="1" maxlength="10" pattern="[A-Za-z]+" title="Must be alphabet only" name="lname" class="textbox"  placeholder="Last Name">
+               </td>
+
+                      <tr>
+                <td>
+                     <font class="text" >Password</font>
+                </td>
+                <td>
+                    <input type="password" required name="password" class="textbox1" placeholder="Enter Password">
+
+               </td>
+            </tr>
+                </table>
+            <br>
+            <input type="submit" value="SAVE CHANGES" class="but buttonc"><br>
+
+            </form>
+            <form action = 'delete/'>
+               <input type="submit" value="DELETE ACCOUNT" class="but buttonc">
+           </form>
+       </center>
+    </body>
+</html>

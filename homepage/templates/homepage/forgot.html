@@ -1,0 +1,103 @@
+
+<html>
+<head>
+<style>
+body
+{
+  width:98%;
+  background: url("https://i.ibb.co/Jsd7ZwK/33400.jpg");
+  background-size:100%;
+}
+font
+{
+    color:white;
+    font-size:18px;
+}
+#form
+{
+  border:5px solid black;
+  border-radius:5%;
+  background:transparent;
+  width:370px;
+  height:290px;
+  text-align:center;
+  margin:100px auto;
+  background-image: url("https://image.freepik.com/free-vector/colorful-sunset-gradient-vector-background_1962-597.jpg");
+}
+#form h1
+{
+  color:yellow;
+}
+a
+{
+  color: yellow;
+}
+#form input
+{
+  color:blue;
+  padding:1em;
+  margin:5px;
+  background:white;
+  border:2px solid white;
+  border-radius:3%;
+}
+#form .text
+{
+  width:250px;
+  height:2px;
+}
+#form .submit-button
+{
+  margin-top:8px;
+  padding: 8px 18px;
+  text-align: center;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right:auto;
+  display:flex;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px
+  rgba(0, 0, 0, 0.1);
+  letter-spacing: 2.5px;
+  outline: none;
+  position: relative;
+  margin-bottom:20px;
+}
+.buttonc
+{
+  background-color: white;
+}
+.buttonc:hover
+{
+  transform: translateY(-4px);
+}
+span.login
+ {
+  font-size:20px;
+  text-align:center;
+  padding-top: 16px;
+  margin-top:20px;
+}
+</style>
+</head>
+<body>
+<div id="form">
+  <h1>Forgot Password?</h1>
+    <form action=" "method="POST">
+        {% csrf_token %}
+            <tr>
+                <td>
+                     <font name = 'email' class="text" >Email ID</font>
+                </td>
+                <td>
+                    <input type="text" required minlength="10" maxlength="30" title="The domain portion of the email address is invalid (the portion after the @)." pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{3,})+$" name="email" class="text"  placeholder="Email Address">
+               </td>
+            </tr>
+         <input type="submit" name="submit"  value="Send" class="submit-button buttonc"/>
+    </form>
+   <span class="login"><a href="/login/">Back to login</a></span>
+</div>
+</body>
+</html>

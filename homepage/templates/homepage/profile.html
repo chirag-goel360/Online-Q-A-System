@@ -1,0 +1,87 @@
+<html>
+<head>
+    <style>
+        body
+        {
+            width:100%;
+            background: url("https://i.ibb.co/Jsd7ZwK/33400.jpg");
+            background-size:90%;
+        }
+        .card
+        {
+            box-shadow: 0 6px 10px 0 rgba(0,0,0.2);
+            max-width: 430px;
+            max-height:525px;
+            margin: auto;
+            text-align:center;
+            font-family:courier;
+            font-size: 15px;
+        }
+        .title
+        {
+            color: grey;
+            font-size: 4px;
+        }
+
+        button
+        {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: red;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            position:relative;
+        }
+
+    a
+    {
+        text-decoration: none;
+        font-size: 10px;
+         color:black;
+    }
+
+    button:hover, a:hover
+    {
+        opacity: 0.7;
+    }
+</style>
+</head>
+<body>
+{% if all_users %}
+    {% for w in all_users %}
+        {% if w.status == '1' %}
+<h1 style="text-align:center;text-shadow:2px 2px 4px black;color:blue;font-size:40px;">Profile</h1>
+<div class="card">
+    {% if w.imgpicture == '' %}
+    Profile Picture not exists
+    {% else %}
+    <img src="{{ w.imgpicture }}" alt="image" style="width:40%;border:1px solid black;">
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type = "file" name="document">
+        <button style ="width:30%;" type="submit">Upload</button>
+    </form>
+    <h1 style="text-shadow:2px 2px 4px black;color:white;font-family:courie;">{{w.fname}} {{w.mname}} {{w.lname}}</h1>
+
+    <h3 style="text-align:left;padding-left:30px">E-mail ID &nbsp &nbsp : {{w.email }}</h3>
+    <h3 style="text-align:left;padding-left:30px">Phone Number  : {{ w.phoneno }}</h3>
+    <h3 style="text-align:left;padding-left:30px">Gender &nbsp &nbsp &nbsp &nbsp: {{ w.gender }}</h3>
+    <h3 style="text-align:left;padding-left:30px">Answers Given : {{ w.ansgive }}</h3>
+    <h3 style="text-align:left;padding-left:30px">Question Asked:  {{ w.queasked}}</h3>
+    <div style="margin: 120px 0;">
+  </div>
+    <form action="/login/mainpage/">
+          <p><button style="margin-top:-25%;"> Go to Mainpage </button></p>
+    </form>
+</div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+</body>
+</html>

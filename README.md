@@ -4,6 +4,7 @@ Online Question & Answer System ( Using Pycharm )
 A Question & Answer (Q&A) website where you can post your questions and can give answers to specific questions .Your answers can be reviewed , upvoted and you can know how relevant your answer will be for other persons .
 
 
+Virual Environment is created just enter venv->scripts. Run cmd and then type activate and enter then navigate back to folder which contains manage.py. Run cmd and then type python manage.py runserver. 
 
 Technologies Used |
 ------------ |

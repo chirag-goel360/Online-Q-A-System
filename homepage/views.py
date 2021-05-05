@@ -1,9 +1,9 @@
-
-from django.shortcuts import render,redirect
-from .models import User,Question,Report,Answer,Review,Delete
+from django.shortcuts import render, redirect
+from .models import User, Question, Report, Answer, Review, Delete
 from django.core.files.storage import FileSystemStorage
 from django.core.mail import send_mail
 from django.conf import settings
+
 
 def index(request):
     all_users = User.objects.all()
@@ -12,10 +12,11 @@ def index(request):
     else:
         flag = 0
     context ={
-        'all_users':all_users,
-        'f':flag,
+        'all_users': all_users,
+        'f': flag,
     }
-    return render(request,'homepage/index.html',context)
+    return render(request, 'homepage/index.html', context)
+
 
 def regist(request):
     if request.method =='POST':
@@ -32,24 +33,24 @@ def regist(request):
         lname.istitle()
         if gender == 'Male':
             user.gender = 'Male'
-        elif gender == 'Female' :
+        elif gender == 'Female':
             user.gender = 'Female'
         else:
             user.gender = 'Other'
         if User.objects.filter(email=email).exists():
             message = 'emailtaken'
             context = {
-                'email':email,
-                'mess':message,
+                'email': email,
+                'mess': message,
             }
             return render(request, 'homepage/error.html', context)
         elif User.objects.filter(phoneno=phoneno).exists():
             message = 'phonenotaken'
             context = {
-                'phoneno':phoneno,
-                'mess':message,
+                'phoneno': phoneno,
+                'mess': message,
             }
-            return render(request,'homepage/error.html',context)
+            return render(request, 'homepage/error.html', context)
         else:
             user.fname = fname
             user.mname = mname
@@ -64,7 +65,8 @@ def regist(request):
             }
             return render(request, 'homepage/error.html', context)
     else:
-        return render(request,'homepage/register.html')
+        return render(request, 'homepage/register.html')
+
 
 def login(request):
     if request.method == 'POST':
@@ -74,7 +76,7 @@ def login(request):
             person = User.objects.filter(email=email).first()
             if person.password == password:
                 context = {
-                    'person':person,
+                    'person': person,
                 }
                 all_users = User.objects.all()
                 for loged in all_users:
@@ -94,68 +96,71 @@ def login(request):
         else:
             message='wrongemail'
             context = {
-                'email':email,
-                'password':password,
-                'mess':message,
+                'email': email,
+                'password': password,
+                'mess': message,
             }
-            return render(request,'homepage/error.html',context)
+            return render(request, 'homepage/error.html', context)
     else:
-        return render(request,'homepage/loginpage.html')
+        return render(request, 'homepage/loginpage.html')
+
 
 def forgot(request):
     if request.method == 'POST':
         mail = request.POST['email']
-        person = User.objects.filter(email = mail).first()
+        person = User.objects.filter(email=mail).first()
         toemail = [mail]
         if User.objects.filter(email=mail).exists():
             subject = 'Your password for Online Q&A System'
             message = 'Password :'+ person.password
             from_email = settings.EMAIL_HOST_USER
-            send_mail(subject=subject,from_email=from_email,recipient_list=toemail,message=message,fail_silently=True)
+            send_mail(subject=subject, from_email=from_email, recipient_list=toemail, message=message, fail_silently=True)
             message = 'Password has been sent to your email'
             context = {
-            'mess':message,
+                'mess': message,
             }
-            return render(request, 'homepage/error.html',context)
+            return render(request, 'homepage/error.html', context)
         else:
             message = 'wrongemail'
             context = {
                 'mess': message,
             }
-            return render(request,'homepage/error.html',context)
+            return render(request, 'homepage/error.html', context)
     else:
-        return render(request,'homepage/forgot.html')
+        return render(request, 'homepage/forgot.html')
+
 
 def mainpage(request):
-            if request.method == 'POST':
-                search = request.POST['search']
-                finding = 1
-            else:
-                search = ''
-                finding = 0
-            all_users = User.objects.all()
-            all_ques = Question.objects.all()
-            flag = 0
-            context = {
-                'all_users': all_users,
-                'all_ques':all_ques,
-                'keyword':search,
-                'flag':flag,
-                'finding':finding,
-            }
-            logged = User.objects.filter(status='1').first()
-            if logged.imgpicture == '':
-                logged.imgpicture = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnm2xMHtdgM-AQu_HFt_81GhkfnpyyjGIpJVbYcTPgQsAK9gjX'
-                logged.save()
-            return render(request, 'homepage/mainpage.html', context)
+    if request.method == 'POST':
+        search = request.POST['search']
+        finding = 1
+    else:
+        search = ''
+        finding = 0
+    all_users = User.objects.all()
+    all_ques = Question.objects.all()
+    flag = 0
+    context = {
+        'all_users': all_users,
+        'all_ques': all_ques,
+        'keyword': search,
+        'flag': flag,
+        'finding': finding,
+    }
+    logged = User.objects.filter(status='1').first()
+    if logged.imgpicture == '':
+        logged.imgpicture = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnm2xMHtdgM-AQu_HFt_81GhkfnpyyjGIpJVbYcTPgQsAK9gjX'
+        logged.save()
+    return render(request, 'homepage/mainpage.html', context)
+
 
 def profile(request):
     if request.method == 'POST':
         file = request.FILES['document']
         fs = FileSystemStorage()
-        name = fs.save(file.name,file)
+        name = fs.save(file.name, file)
         url = fs.url(name)
-        logged = User.objects.filter(status = '1').first()
+        logged = User.objects.filter(status='1').first()
         logged.imgpicture = url
         logged.save()
     logged = User.objects.filter(status='1').first()
@@ -164,9 +169,11 @@ def profile(request):
         logged.save()
     all_users = User.objects.all()
     context = {
-       'all_users':all_users,
+        'all_users': all_users,
     }
-    return render(request,'homepage/profile.html',context)
+    return render(request, 'homepage/profile.html', context)
+
+
 def signout(request):
     if User.objects.filter(status='1').exists():
         person = User.objects.filter(status='1').first()
@@ -175,10 +182,12 @@ def signout(request):
         message = 'loggedout'
         context = {
             'mess': message,
-         }
+        }
         return render(request, 'homepage/error.html', context)
     else:
         return redirect("/")
+
+
 def women(request):
     if request.method == 'POST':
         wquestion = request.POST['wquestion']
@@ -188,23 +197,24 @@ def women(request):
             if w.isalnum():
                 f+=1
         if f>=10:
-           q2 = Question()
-           q2.name = name.fname
-           q2.question = wquestion
-           q2.length = len(wquestion)
-           q2.email =  name.email
-           q2.wquestion = '1'
-           q2.topic = 'Women Question'
-           q2.save()
-           return redirect("/login/mainpage/")
+            q2 = Question()
+            q2.name = name.fname
+            q2.question = wquestion
+            q2.length = len(wquestion)
+            q2.email = name.email
+            q2.wquestion = '1'
+            q2.topic = 'Women Question'
+            q2.save()
+            return redirect("/login/mainpage/")
         else:
-           mess = 'wrongformat'
-           context = {
-               'mess': mess,
-           }
-           return render(request, 'homepage/error.html', context)
+            mess = 'wrongformat'
+            context = {
+                'mess': mess,
+            }
+            return render(request, 'homepage/error.html', context)
     else:
         return render(request, 'homepage/women.html')
+
 
 def question(request):
     if request.method == 'POST':
@@ -241,21 +251,22 @@ def question(request):
     else:
         all_users = User.objects.all()
         context = {
-            'all_users':all_users,
+            'all_users': all_users,
         }
-        return render(request, 'homepage/question.html',context)
+        return render(request, 'homepage/question.html', context)
+
+
 def report(request):
     if request.method == 'POST':
         helper = request.POST['helper']
         describ = request.POST['describ']
         user = User.objects.filter(status='1').first()
-        email = user.email
         funame = user.fname + ' ' + user.mname + ' ' + user.lname
         q1 = Report()
-        q1.helper = helper;
-        q1.email = user.email;
-        q1.funame = funame;
-        q1.describ = describ;
+        q1.helper = helper,
+        q1.email = user.email,
+        q1.funame = funame,
+        q1.describ = describ,
         q1.save()
         return redirect("/login/mainpage/")
     else:
@@ -264,9 +275,13 @@ def report(request):
             'all_users': all_users,
         }
         return render(request, 'homepage/report.html', context)
+
+
 def about(request):
     return render(request, 'homepage/about.html')
-def answer(request,question_id):
+
+
+def answer(request, question_id):
     qw = Question.objects.filter(id=question_id).first()
     logged = User.objects.filter(status='1').first()
     if request.method == 'POST':
@@ -286,37 +301,39 @@ def answer(request,question_id):
         return redirect('/login/mainpage/')
     else:
         context ={
-            'qw':qw,
+            'qw': qw,
         }
-        return render(request, 'homepage/answer.html',context)
-def seeanswers(request,question_id):
+        return render(request, 'homepage/answer.html', context)
+
+
+def seeanswers(request, question_id):
     personasked = Question.objects.filter(id=question_id).first()
     allanswered = Answer.objects.all()
     logged = User.objects.filter(status='1').first()
-    if Answer.objects.filter(idanswer = personasked.id).exists():
+    if Answer.objects.filter(idanswer=personasked.id).exists():
         exists = 'exists'
     else:
-        exists =  'notexists'
+        exists = 'notexists'
     all_users = User.objects.all()
     context = {
         'personasked': personasked,
-        'allanswered':allanswered,
-        'exists':exists,
-        'logged':logged,
-        'all_users':all_users,
+        'allanswered': allanswered,
+        'exists': exists,
+        'logged': logged,
+        'all_users': all_users,
     }
     return render(request, 'homepage/seeanswers.html', context)
 
-def upvotes(request,question_id,ans_id):
-    answered = Answer.objects.filter(id = ans_id).first()
-    logged  = User.objects.filter(status = '1').first()
+
+def upvotes(request, question_id, ans_id):
+    answered = Answer.objects.filter(id=ans_id).first()
+    logged = User.objects.filter(status='1').first()
     allreview = Review.objects.all()
     flag = 0
-    dflag = 0
     if allreview:
         for w in allreview:
-            if  w.answerid == ans_id and w.rid == logged.id:
-                Review.objects.filter(rid=logged.id,answerid = ans_id).delete()
+            if w.answerid == ans_id and w.rid == logged.id:
+                Review.objects.filter(rid=logged.id, answerid=ans_id).delete()
                 answered.upvotes = answered.upvotes - 1
                 answered.save()
                 return redirect('/login/mainpage/seeanswers/' + str(question_id) + '/')
@@ -329,7 +346,6 @@ def upvotes(request,question_id,ans_id):
             answered.upvotes = answered.upvotes + 1
             answered.save()
             newrev.save()
-            flag = 0
             return redirect('/login/mainpage/seeanswers/' + str(question_id) + '/')
     else:
         rev = Review()
@@ -339,6 +355,7 @@ def upvotes(request,question_id,ans_id):
         answered.save()
         rev.save()
         return redirect('/login/mainpage/seeanswers/' + str(question_id) + '/')
+
 
 def options(request):
     if request.method == 'POST':
@@ -354,7 +371,8 @@ def options(request):
         logged.save()
         return redirect("/login/mainpage/profile/")
     else:
-        return render(request,'homepage/optavil.html')
+        return render(request, 'homepage/optavil.html')
+
 
 def delete(request):
     if request.method == 'POST':
@@ -377,7 +395,9 @@ def delete(request):
         return redirect("/")
     else:
         return render(request, 'homepage/delete.html')
-def your(request,your):
+
+
+def your(request, your):
     if your == 1881:
         finding = 2
     elif your == 8118:
@@ -396,7 +416,7 @@ def your(request,your):
         'flag': flag,
         'finding': finding,
         'logged': logged,
-        'keyword':keyword
+        'keyword': keyword
     }
     print(logged.email)
     return render(request, 'homepage/mainpage.html', context)

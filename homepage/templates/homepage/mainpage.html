@@ -1,389 +1,424 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-     body
-     {
-        background:#f2f2f2;
-        font-family: sans-serif;
-     }
-    a
-    {
-	    display: block;
-	    color: white;
-    }
+        body {
+            background: #f2f2f2;
+            font-family: sans-serif;
+        }
 
-    .sidenav
-    {
-         height: 130%;
-         width: 130px;
-         position: fixed;
-         top: 0px;
-         right: 10px;
-         background-image: url("https://webgradients.com/public/webgradients_png/064%20Red%20Salvation.png");
-         padding: 8px 0;
-         border:2px solid;
-         background-size:cover;
-    }
-    .sidenav a
-    {
-         padding: 6px 8px 6px 16px;
-         text-decoration: none;
-         font-size: 25px;
-         color: white;
-         display: block;
-         border:1px solid white;
-         transition-duration: 0.3s;
-         border-radius:3%;
-         text-shadow:2px 2px 4px black;
-    }
-    .sidenav a:hover
-    {
-         background-color:red;
-         transform: translateX(-16px);
-         box-shadow: 0px 15px 20px
-         rgba(226, 106, 106, 1);
-         color:white;
-         text-shadow:2px 2px 4px black;
-    }
-    .card
-    {
-	    min-height: 10px;
-	    margin-left: 70px;
-	    max-width: 1000px;
-	    background:white;
-	    background-size:cover;
-	    border-radius: 5px;
-	    box-shadow: 0px 5px 5px
-	    rgba(0,1,3,0.4);
-    	position: relative;
-    	margin-top:20px;
-    	animation: myfirst 5s;
-    	padding-bottom:4px;
-    	padding-left:10px;
-    	border-color: black;
-        box-shadow: 0 0 3px black;
-    }
-    @keyframes myfirst {
-    10%   { left:0px; top:-600px;}
-    20%  { left:0px; top:-20px;}
-    40% { left:0px; top:0px;}
-    }
-    .image
-    {
-        float:left;
-        margin-bottom:40%:
-        position:relative;
-        padding-bottom:0px;
-        width:60px;
-        height:60px;
-        margin-top:15px;
-        margin-left:10px;
-        margin-right:20px;
-        border:1px solid black;
-        border-radius:0%;
-    }
-    .box
-    {
-        float:left;
-        margin-left:-10px;
-        width:50%;
-        border:0px solid black;
-    }
-    .ques
-    {
-        color:black;
-        position:relative;
-        display:block;
-        margin-top:3px;
-        word-wrap:break-word;
-    }
-    .quesbox
-    {
-        margin-left:92px;
-        width:900px;
-        border:0px solid white;
-    }
-     .btn
-     {
-        float:left;
-        outline:none;
-        background-color:#008CBA;
-        text-align:center;
-        color:white;
-        font-size:15px;
-        border-radius:0 px;
-        width:150px;
-        cursor:pointer;
-        padding:10px;
-        margin-right:auto;
-        margin-left:8px;
-        position:relative;
-        display:block;
-        transition-duration:0.2s;
-     }
+        a {
+            display: block;
+            color: white;
+        }
 
-    .btn:hover
-    {
-        background-color:#419218  ;
-        color:white;
-        transform: translateY(-6px);
-        box-shadow: 0px 1px 2px blue;
-    }
+        .sidenav {
+            height: 130%;
+            width: 130px;
+            position: fixed;
+            top: 0px;
+            right: 10px;
+            background-image: url("https://webgradients.com/public/webgradients_png/064%20Red%20Salvation.png");
+            padding: 8px 0;
+            border: 2px solid;
+            background-size: cover;
+        }
 
-       .abtn
-     {
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            display: block;
+            border: 1px solid white;
+            transition-duration: 0.3s;
+            border-radius: 3%;
+            text-shadow: 2px 2px 4px black;
+        }
 
-        margin-left:auto;
-        margin-right:20px;
-        outline:none;
-        background-color:DodgerBlue;
-        text-align:center;
-        color:white;
-        font-size:15px;
-        border-radius:0px;
-        width:150px;
-        cursor:pointer;
-        padding:10px;
-        position:relative;
-        display:block;
-        transition-duration:0.2s;
-     }
-    .abtn:hover
-    {
-        background-color:red;
-        color:white;
-        transform: translateY(-6px);
-    }
-    .topbar
-    {
-        float:left;
-        padding-top:10px;
-        padding-left:5px;
-        display:block;
-        position:relative;
-        width:120%;
-        margin-right:auto;
-        margin-left:auto;
-        background-color:green;
-        top:-20px;
-    }
+        .sidenav a:hover {
+            background-color: red;
+            transform: translateX(-16px);
+            box-shadow: 0px 15px 20px rgba(226, 106, 106, 1);
+            color: white;
+            text-shadow: 2px 2px 4px black;
+        }
 
-    }
-    #form
-    {
-        width:1px;
-        height:400px;
-        text-align:center;
-        margin:20px 30px;
-    }
-    #form input
-    {
-        margin-right:20px;
-        border:5px solid red;
-        color:black;
-        padding:1.3em;
-        background:white;
-        border:2px solid white;
-        border-radius:3%;
-        margin-top:4px;
-    }
-    #form .text
-    {
-        float:left;
-         margin-left:200px;
-         position:relative;
-        display:block;
-        width:250px;
-        height:1px;
-        border:1px solid black;
-    }
-    .sea
-    {
-        background-color: DodgerBlue;
-        color: white;
-        padding: 10px 10px;
-        font-size: 16px;
-        cursor: pointer;
-        margin-top:4px;
-    }
-.back
-{
-    position:fixed;
-    display:block;
-    background:#deeaee;
-    height:50px;
-    width:88%;
-    margin-right:400px;
-    top:0;
-}
+        .card {
+            min-height: 10px;
+            margin-left: 70px;
+            max-width: 1000px;
+            background: white;
+            background-size: cover;
+            border-radius: 5px;
+            box-shadow: 0px 5px 5px rgba(0, 1, 3, 0.4);
+            position: relative;
+            margin-top: 20px;
+            animation: myfirst 5s;
+            padding-bottom: 4px;
+            padding-left: 10px;
+            border-color: black;
+            box-shadow: 0 0 3px black;
+        }
 
+        @keyframes myfirst {
+            10% {
+                left: 0px;
+                top: -600px;
+            }
+
+            20% {
+                left: 0px;
+                top: -20px;
+            }
+
+            40% {
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        .image {
+            float: left;
+            margin-bottom: 40%: position:relative;
+            padding-bottom: 0px;
+            width: 60px;
+            height: 60px;
+            margin-top: 15px;
+            margin-left: 10px;
+            margin-right: 20px;
+            border: 1px solid black;
+            border-radius: 0%;
+        }
+
+        .box {
+            float: left;
+            margin-left: -10px;
+            width: 50%;
+            border: 0px solid black;
+        }
+
+        .ques {
+            color: black;
+            position: relative;
+            display: block;
+            margin-top: 3px;
+            word-wrap: break-word;
+        }
+
+        .quesbox {
+            margin-left: 92px;
+            width: 900px;
+            border: 0px solid white;
+        }
+
+        .btn {
+            float: left;
+            outline: none;
+            background-color: #008CBA;
+            text-align: center;
+            color: white;
+            font-size: 15px;
+            border-radius: 0 px;
+            width: 150px;
+            cursor: pointer;
+            padding: 10px;
+            margin-right: auto;
+            margin-left: 8px;
+            position: relative;
+            display: block;
+            transition-duration: 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #419218;
+            color: white;
+            transform: translateY(-6px);
+            box-shadow: 0px 1px 2px blue;
+        }
+
+        .abtn {
+            margin-left: auto;
+            margin-right: 20px;
+            outline: none;
+            background-color: DodgerBlue;
+            text-align: center;
+            color: white;
+            font-size: 15px;
+            border-radius: 0px;
+            width: 150px;
+            cursor: pointer;
+            padding: 10px;
+            position: relative;
+            display: block;
+            transition-duration: 0.2s;
+        }
+
+        .abtn:hover {
+            background-color: red;
+            color: white;
+            transform: translateY(-6px);
+        }
+
+        .topbar {
+            float: left;
+            padding-top: 10px;
+            padding-left: 5px;
+            display: block;
+            position: relative;
+            width: 120%;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: green;
+            top: -20px;
+        }
+
+        #form {
+            width: 1px;
+            height: 400px;
+            text-align: center;
+            margin: 20px 30px;
+        }
+
+        #form input {
+            margin-right: 20px;
+            border: 5px solid red;
+            color: black;
+            padding: 1.3em;
+            background: white;
+            border: 2px solid white;
+            border-radius: 3%;
+            margin-top: 4px;
+        }
+
+        #form .text {
+            float: left;
+            margin-left: 200px;
+            position: relative;
+            display: block;
+            width: 250px;
+            height: 1px;
+            border: 1px solid black;
+        }
+
+        .sea {
+            background-color: DodgerBlue;
+            color: white;
+            padding: 10px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        .back {
+            position: fixed;
+            display: block;
+            background: #deeaee;
+            height: 50px;
+            width: 88%;
+            margin-right: 400px;
+            top: 0;
+        }
     </style>
-    </head>
-    <body>
+</head>
 
+<body>
     <br>
     <br>
     {% if all_users %}
-        {% for w in all_users %}
-            {% if w.status == '1' %}
-             {% if finding == 1 %}
-            <h2 style="color:black;">Searched Result</h2>
-            {% elif finding == 2 %}
-            <h2 style="color:black;">Your Questions</h2>
-            {% elif finding == 3 %}
-            <h2 style="color:black;">From Other Users</h2>
-            {% endif %}
-             <h2 style="color:black;">All Questions Asked</h2>
-            {% if all_ques %}
-                {% for qu in all_ques reversed %}
-                   {% if keyword in qu.question %}
-                    {% if finding == 2 %}
-                    {% if logged.email == qu.email %}
-                        {% if qu.wquestion == '0'  and w.gender == 'Male' or qu.wquestion == '0' and w.gender == 'Female' or qu.wquestion == '1' and w.gender == 'Female' %}
-                     <div class = "card">
-                         {% for qw in all_users %}
-                         {% if qu.email == qw.email %}
-                            <img class="image" src="{{ qw.imgpicture }} " alt="Avatar" width="120px" height="90px">
-                         {% endif %}
-                         {% endfor %}
-                    <br>
-                    <div class="box">
-                        {% if qu.email == w.email %}
-                        <b><font style="margin-left:2%;">Asked By You</font></b>
-                        {% else %}
-                        <font style="margin-left:2%;">Person Asked: </font><b>{{qu.name}}</b>
-                        {% endif %}
-                        <br><font style="margin-left:2%;">Date:</font><b>{{qu.publish}}</b>
-                         <font style="margin-left:2%;">Topic: </font><b><font>{{qu.topic}}</font></b>
-                        <font style="margin-left:2%;">Total Answers: </font><b><font>{{qu.totalans}}</font></b>
-                    </div>
-                         {% if qu.email != w.email  %}
-                                <form action="answer/{{ qu.id }}/">
-                                    <input style="margin-left:40px;" type = 'submit' value = "Give Answer" class="btn">
-                                </form>
-                         {% endif %}
-                         <form action="seeanswers/{{ qu.id }}">
-                                    <input  type = 'submit' value ="See Answers" class="abtn">
-                         </form>
-                         <hr style="margin-left:10px;">
-                         <div class="quesbox">
-                             <i><font class ="ques"> {{ qu.question }}</font></i>
-		                 </div>
-                    </div>
-                    {% elif qu.wquestion == '1' and w.gender == 'Male' %}
-                    {% endif %}
-                    {% endif %}
-                    {% elif finding == 3 %}
-                    {% if logged.email != qu.email %}
-                        {% if qu.wquestion == '0'  and w.gender == 'Male' or qu.wquestion == '0' and w.gender == 'Female' or qu.wquestion == '1' and w.gender == 'Female' %}
-                     <div class = "card">
-                         {% for qw in all_users %}
-                         {% if qu.email == qw.email %}
-                            <img class="image" src="{{ qw.imgpicture }} " alt="Avatar" width="120px" height="90px">
-                         {% endif %}
-                         {% endfor %}
-                    <br>
-                    <div class="box">
-                        {% if qu.email == w.email %}
-                        <b><font style="margin-left:2%;">Asked By You</font></b>
-                        {% else %}
-                        <font style="margin-left:2%;">Person Asked: </font><b>{{qu.name}}</b>
-                        {% endif %}
-                        <br><font style="margin-left:2%;">Date:</font><b>{{qu.publish}}</b>
-                         <font style="margin-left:2%;">Topic: </font><b><font>{{qu.topic}}</font></b>
-                        <font style="margin-left:2%;">Total Answers: </font><b><font>{{qu.totalans}}</font></b>
-                    </div>
-                         {% if qu.email != w.email  %}
-                                <form action="answer/{{ qu.id }}/">
-                                    <input style="margin-left:40px;" type = 'submit' value = "Give Answer" class="btn">
-                                </form>
-                         {% endif %}
-                         <form action="seeanswers/{{ qu.id }}">
-                                    <input  type = 'submit' value ="See Answers" class="abtn">
-                         </form>
-                         <hr style="margin-left:10px;">
-                         <div class="quesbox">
-                             <i><font class ="ques"> {{ qu.question }}</font></i>
-		                 </div>
-                    </div>
-                    {% elif qu.wquestion == '1' and w.gender == 'Male' %}
-                    {% endif %}
-                    {% endif %}
-                    {% elif qu.wquestion == '0'  and w.gender == 'Male' or qu.wquestion == '0' and w.gender == 'Female' or qu.wquestion == '1' and w.gender == 'Female' %}
-                     <div class = "card">
-                         {% for qw in all_users %}
-                         {% if qu.email == qw.email %}
-                            <img class="image" src="{{ qw.imgpicture }} " alt="Avatar" width="120px" height="90px">
-                         {% endif %}
-                         {% endfor %}
-                    <br>
-                    <div class="box">
-                        {% if qu.email == w.email %}
-                        <b><font style="margin-left:2%;">Asked By You</font></b>
-                        {% else %}
-                        <font style="margin-left:2%;">Person Asked: </font><b>{{qu.name}}</b>
-                        {% endif %}
-                        <br><font style="margin-left:2%;">Date:</font><b>{{qu.publish}}</b>
-                         <font style="margin-left:2%;">Topic: </font><b><font>{{qu.topic}}</font></b>
-                        <font style="margin-left:2%;">Total Answers: </font><b><font>{{qu.totalans}}</font></b>
-                    </div>
-                         {% if qu.email != w.email  %}
-                                <form action="answer/{{ qu.id }}/">
-                                    <input style="margin-left:40px;" type = 'submit' value = "Give Answer" class="btn">
-                                </form>
-                         {% endif %}
-                         <form action="seeanswers/{{ qu.id }}">
-                                    <input  type = 'submit' value ="See Answers" class="abtn">
-                         </form>
-                         <hr style="margin-left:10px;">
-                         <div class="quesbox">
-                             <i><font class ="ques"> {{ qu.question }}</font></i>
-		                 </div>
-                    </div>
-                    {% elif qu.wquestion == '1' and w.gender == 'Male' %}
-                    {% endif %}
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-            <div class="sidenav">
-                <a style="background-color:lightred;
-         transform: translateX(0px);
-
-          color:white;
-          text-shadow:2px 2px 4px black;" href="profile/">{{ w.fname }}</a>
-                <a href="profile/">Profile</a>
-                <a href="options/">Options</a>
-                <a href="report/">Report</a>
-                <a href="about/">About</a>
-                {% if w.gender == 'Female' %}
-                    <a href="women/">Women Special</a>
-                {% endif %}
-                <a href="signout/">Log Out</a>
-            </div>
-            {% endif %}
+    {% for w in all_users %}
+    {% if w.status == '1' %}
+    {% if finding == 1 %}
+    <h2 style="color:black;">Searched Result</h2>
+    {% elif finding == 2 %}
+    <h2 style="color:black;">Your Questions</h2>
+    {% elif finding == 3 %}
+    <h2 style="color:black;">From Other Users</h2>
+    {% endif %}
+    <h2 style="color:black;">All Questions Asked</h2>
+    {% if all_ques %}
+    {% for qu in all_ques reversed %}
+    {% if keyword in qu.question %}
+    {% if finding == 2 %}
+    {% if logged.email == qu.email %}
+    {% if qu.wquestion == '0' and w.gender == 'Male' or qu.wquestion == '0' and w.gender == 'Female' or qu.wquestion ==
+    '1' and w.gender == 'Female' %}
+    <div class="card">
+        {% for qw in all_users %}
+        {% if qu.email == qw.email %}
+        <img class="image" src="{{ qw.imgpicture }} " alt="Avatar" width="120px" height="90px">
+        {% endif %}
         {% endfor %}
-     {% else %}
-        <center><h1>Nobody Logged In</h1></center>
-     {% endif %}
-    <div id = "form" class="back">
-                <form action="/login/mainpage/" >
-            <button style = "background:blue;margin-top:4px;"class="btn"><i class="fa fa-home">Home</i></button>
-                </form>
-        <form action = "/login/mainpage/1881/" >
-            <button style = "background:blue;margin-top:4px;"class="btn"><i class="fa fa-question-circle">Your Questions</i></button>
+        <br>
+        <div class="box">
+            {% if qu.email == w.email %}
+            <b>
+                <font style="margin-left:2%;">Asked By You</font>
+            </b>
+            {% else %}
+            <font style="margin-left:2%;">Person Asked: </font><b>{{qu.name}}</b>
+            {% endif %}
+            <br>
+            <font style="margin-left:2%;">Date:</font><b>{{qu.publish}}</b>
+            <font style="margin-left:2%;">Topic: </font><b>
+                <font>{{qu.topic}}</font>
+            </b>
+            <font style="margin-left:2%;">Total Answers: </font><b>
+                <font>{{qu.totalans}}</font>
+            </b>
+        </div>
+        {% if qu.email != w.email %}
+        <form action="answer/{{ qu.id }}/">
+            <input style="margin-left:40px;" type='submit' value="Give Answer" class="btn">
+        </form>
+        {% endif %}
+        <form action="seeanswers/{{ qu.id }}">
+            <input type='submit' value="See Answers" class="abtn">
+        </form>
+        <hr style="margin-left:10px;">
+        <div class="quesbox">
+            <i>
+                <font class="ques"> {{ qu.question }}</font>
+            </i>
+        </div>
+    </div>
+    {% elif qu.wquestion == '1' and w.gender == 'Male' %}
+    {% endif %}
+    {% endif %}
+    {% elif finding == 3 %}
+    {% if logged.email != qu.email %}
+    {% if qu.wquestion == '0' and w.gender == 'Male' or qu.wquestion == '0' and w.gender == 'Female' or qu.wquestion ==
+    '1' and w.gender == 'Female' %}
+    <div class="card">
+        {% for qw in all_users %}
+        {% if qu.email == qw.email %}
+        <img class="image" src="{{ qw.imgpicture }} " alt="Avatar" width="120px" height="90px">
+        {% endif %}
+        {% endfor %}
+        <br>
+        <div class="box">
+            {% if qu.email == w.email %}
+            <b>
+                <font style="margin-left:2%;">Asked By You</font>
+            </b>
+            {% else %}
+            <font style="margin-left:2%;">Person Asked: </font><b>{{qu.name}}</b>
+            {% endif %}
+            <br>
+            <font style="margin-left:2%;">Date:</font><b>{{qu.publish}}</b>
+            <font style="margin-left:2%;">Topic: </font><b>
+                <font>{{qu.topic}}</font>
+            </b>
+            <font style="margin-left:2%;">Total Answers: </font><b>
+                <font>{{qu.totalans}}</font>
+            </b>
+        </div>
+        {% if qu.email != w.email %}
+        <form action="answer/{{ qu.id }}/">
+            <input style="margin-left:40px;" type='submit' value="Give Answer" class="btn">
+        </form>
+        {% endif %}
+        <form action="seeanswers/{{ qu.id }}">
+            <input type='submit' value="See Answers" class="abtn">
+        </form>
+        <hr style="margin-left:10px;">
+        <div class="quesbox">
+            <i>
+                <font class="ques"> {{ qu.question }}</font>
+            </i>
+        </div>
+    </div>
+    {% elif qu.wquestion == '1' and w.gender == 'Male' %}
+    {% endif %}
+    {% endif %}
+    {% elif qu.wquestion == '0' and w.gender == 'Male' or qu.wquestion == '0' and w.gender == 'Female' or qu.wquestion
+    == '1' and w.gender == 'Female' %}
+    <div class="card">
+        {% for qw in all_users %}
+        {% if qu.email == qw.email %}
+        <img class="image" src="{{ qw.imgpicture }} " alt="Avatar" width="120px" height="90px">
+        {% endif %}
+        {% endfor %}
+        <br>
+        <div class="box">
+            {% if qu.email == w.email %}
+            <b>
+                <font style="margin-left:2%;">Asked By You</font>
+            </b>
+            {% else %}
+            <font style="margin-left:2%;">Person Asked: </font><b>{{qu.name}}</b>
+            {% endif %}
+            <br>
+            <font style="margin-left:2%;">Date:</font><b>{{qu.publish}}</b>
+            <font style="margin-left:2%;">Topic: </font><b>
+                <font>{{qu.topic}}</font>
+            </b>
+            <font style="margin-left:2%;">Total Answers: </font><b>
+                <font>{{qu.totalans}}</font>
+            </b>
+        </div>
+        {% if qu.email != w.email %}
+        <form action="answer/{{ qu.id }}/">
+            <input style="margin-left:40px;" type='submit' value="Give Answer" class="btn">
+        </form>
+        {% endif %}
+        <form action="seeanswers/{{ qu.id }}">
+            <input type='submit' value="See Answers" class="abtn">
+        </form>
+        <hr style="margin-left:10px;">
+        <div class="quesbox">
+            <i>
+                <font class="ques"> {{ qu.question }}</font>
+            </i>
+        </div>
+    </div>
+    {% elif qu.wquestion == '1' and w.gender == 'Male' %}
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    <div class="sidenav">
+        <a style="background-color:lightred;
+        transform: translateX(0px);
+        color:white;
+        text-shadow:2px 2px 4px black;" href="profile/">{{ w.fname }}</a>
+        <a href="profile/">Profile</a>
+        <a href="options/">Options</a>
+        <a href="report/">Report</a>
+        <a href="about/">About</a>
+        {% if w.gender == 'Female' %}
+        <a href="women/">Women Special</a>
+        {% endif %}
+        <a href="signout/">Log Out</a>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% else %}
+    <center>
+        <h1>Nobody Logged In</h1>
+    </center>
+    {% endif %}
+    <div id="form" class="back">
+        <form action="/login/mainpage/">
+            <button style="background:blue;margin-top:4px;" class="btn"><i class="fa fa-home">Home</i></button>
+        </form>
+        <form action="/login/mainpage/1881/">
+            <button style="background:blue;margin-top:4px;" class="btn"><i class="fa fa-question-circle">Your
+                    Questions</i></button>
         </form>
         <form action="/login/mainpage/8118/">
-            <button style = "background:blue;margin-top:4px;"class="btn"><i class="fa fa-question">Other's Questions</i></button>
+            <button style="background:blue;margin-top:4px;" class="btn"><i class="fa fa-question">Other's
+                    Questions</i></button>
         </form>
-        <form action = "/login/mainpage/question/">
-            <button style = "background:blue;margin-top:4px;"class="btn"><i class="fa fa-lightbulb-o">Ask</i></button>
+        <form action="/login/mainpage/question/">
+            <button style="background:blue;margin-top:4px;" class="btn"><i class="fa fa-lightbulb-o">Ask</i></button>
         </form>
-        <form action="/login/mainpage/" method="post" >
+        <form action="/login/mainpage/" method="post">
             {% csrf_token %}
-            <input  type="text" required name="search" class="text" placeholder="Search">
+            <input type="text" required name="search" class="text" placeholder="Search">
             <button class="sea"><i class="fa fa-search"></i></button>
         </form>
-     </div>
-      </body>
+    </div>
+</body>

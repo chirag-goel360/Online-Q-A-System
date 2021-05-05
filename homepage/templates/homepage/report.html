@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html>
 <style>
-    body{
-    background-image: url("https://i.ibb.co/Jsd7ZwK/33400.jpg");
+    body {
+        background-image: url("https://i.ibb.co/Jsd7ZwK/33400.jpg");
     }
-    label
-    {
-        font-size:22px;
+
+    label {
+        font-size: 22px;
     }
-    select
-    {
-        width:100%;
-        padding:12px 20px;
-        margin:8px 0;
-        border-radius:4px;
-        font-size:15px;
+
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border-radius: 4px;
+        font-size: 15px;
     }
-    #btn
-    {
-        background-color:red;
-        text-align:center;
-        color:white;
-        font-size:15px;
-        border-radius:12px;
-        width:130px;
-        bottom:-50px;
-        cursor:pointer;
-        padding:10px;
+
+    #btn {
+        background-color: red;
+        text-align: center;
+        color: white;
+        font-size: 15px;
+        border-radius: 12px;
+        width: 130px;
+        bottom: -50px;
+        cursor: pointer;
+        padding: 10px;
     }
 </style>
+
 <body>
-{% if all_users %}
+    {% if all_users %}
     {% for w in all_users %}
-        {% if w.status == '1' %}
+    {% if w.status == '1' %}
     <center>
-    <h1 style="color:blue;"><b>REPORT</b></h1>
+        <h1 style="color:blue;"><b>REPORT</b></h1>
     </center>
     <form action="" method="post">
         {% csrf_token %}
-    <label >What we can help you?</label>
-    <select name="helper">
-        <option value="I need help for my account">I need help for my account</option>
-        <option value="I have a safety concern">I have a safety concern</option>
-        <option value="General feedback">General feedback</option>
-        <option value="Report a bug">Report a bug</option>
-        <option value="Want to report copyright">Want to report copyright</option>
-        <option value="Want to report trademark">Want to report trademark</option>
-        <option value="Want to report other infringement">Want to report other infringement</option>
-    </select>
-<h3>Your email address</h3>
-<textarea rows="2" cols="40">{{ w.email }}</textarea>
-<h3>Full name</h3>
-<textarea rows="2" cols="40">{{w.fname}} {{w.mname}} {{w.lname}}</textarea>
-<h3 >Description</h3>
-<textarea name = "describ" rows="4" cols="190"></textarea>
-<br><br>
-<center><input type="submit" value="SEND" id="btn"></center></form>
-        {% endif %}
+        <label>What we can help you?</label>
+        <select name="helper">
+            <option value="I need help for my account">I need help for my account</option>
+            <option value="I have a safety concern">I have a safety concern</option>
+            <option value="General feedback">General feedback</option>
+            <option value="Report a bug">Report a bug</option>
+            <option value="Want to report copyright">Want to report copyright</option>
+            <option value="Want to report trademark">Want to report trademark</option>
+            <option value="Want to report other infringement">Want to report other infringement</option>
+        </select>
+        <h3>Your email address</h3>
+        <textarea rows="2" cols="40">{{ w.email }}</textarea>
+        <h3>Full name</h3>
+        <textarea rows="2" cols="40">{{w.fname}} {{w.mname}} {{w.lname}}</textarea>
+        <h3>Description</h3>
+        <textarea name="describ" rows="4" cols="190"></textarea>
+        <br><br>
+        <center><input type="submit" value="SEND" id="btn"></center>
+    </form>
+    {% endif %}
     {% endfor %}
-{% endif %}
+    {% endif %}
 </body>
+
 </html>

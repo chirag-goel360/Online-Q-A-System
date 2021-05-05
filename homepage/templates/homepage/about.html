@@ -1,92 +1,105 @@
 <html>
+
 <head>
-    <title>Our Project Team</title>
+  <title>Our Project Team</title>
 </head>
-    <style>
+<style>
+  @keyframes example {
+    from {
+      top: -235px;
+      background-color: yellow;
+    }
 
+    to {
+      top: 0px;
+      background-color: blue;
+    }
+  }
 
-@keyframes example
-{
-  from {top: -235px; background-color: yellow;}
-  to {top: 0px; background-color: blue;}
-}
-body
-{
-  background-image:url("https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-}
-.wrapper
-{
-  margin-top: 50px;
-}
-.wrapper h1
-{
-  font-size: 52px;
-  text-align: center;
-}
- .team
- {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
- .team .team_member{
-  background: #fff;
-  margin: 5px;
-  width: 300px;
-  padding: 20px;  
-  position: relative;
-}
-  .team .team_member h3{
-  font-size: 26px;
-  margin-top: 50px;
-}
- .team .team_member p.role{
-  color: green;
-  font-size: 20px;
-}
-  .team .team_member .team_img{
-  position: absolute;
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-}
- .team .team_member .team_img img{
-  height: 100px;
-  border-radius: 50%;
-  position: relative;
-  animation-name: example;
-  animation-duration: 2s;
-  animation-delay: 1s;
-}
-    </style>
+  body {
+    background-image: url("https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  }
+
+  .wrapper {
+    margin-top: 50px;
+  }
+
+  .wrapper h1 {
+    font-size: 52px;
+    text-align: center;
+  }
+
+  .team {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .team .team_member {
+    background: #fff;
+    margin: 5px;
+    width: 300px;
+    padding: 20px;
+    position: relative;
+  }
+
+  .team .team_member h3 {
+    font-size: 26px;
+    margin-top: 50px;
+  }
+
+  .team .team_member p.role {
+    color: green;
+    font-size: 20px;
+  }
+
+  .team .team_member .team_img {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+  }
+
+  .team .team_member .team_img img {
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    animation-name: example;
+    animation-duration: 2s;
+    animation-delay: 1s;
+  }
+</style>
+
 <body>
-<div class="wrapper">
-  <h1 style="color:white;">Our Team</h1>
-  <br><br>
-  <div class="team">
-    <div class="team_member">
-      <div class="team_img">
-        <img src="https://media-exp1.licdn.com/dms/image/C5103AQEtxeaI7sLWcA/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=QCbgOGQbqJRjdDgf1-A5-Z2jOmLPvPBWtyQR6djr008">
+  <div class="wrapper">
+    <h1 style="color:white;">Our Team</h1>
+    <br><br>
+    <div class="team">
+      <div class="team_member">
+        <div class="team_img">
+          <img
+            src="https://media-exp1.licdn.com/dms/image/C5103AQEtxeaI7sLWcA/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=QCbgOGQbqJRjdDgf1-A5-Z2jOmLPvPBWtyQR6djr008">
+        </div>
+        <h3>Rahul Kushwaha</h3>
+        <p class="role">Roll No. : 01610402717</p>
       </div>
-      <h3>Rahul Kushwaha</h3>
-      <p class="role">Roll No. : 01610402717</p>
-    </div>
-    <div class="team_member">
-      <div class="team_img">
-        <img src="https://media-exp1.licdn.com/dms/image/C5103AQEDBAQxLF9C7A/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=xauK3PTQVSbDb4ecnDviyh9VyNuzkWU-DfK0YEvOk9E">
+      <div class="team_member">
+        <div class="team_img">
+          <img
+            src="https://media-exp1.licdn.com/dms/image/C5103AQEDBAQxLF9C7A/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=xauK3PTQVSbDb4ecnDviyh9VyNuzkWU-DfK0YEvOk9E">
+        </div>
+        <h3>Tanya Varsheney</h3>
+        <p class="role">Roll No. : 41710402717</p>
       </div>
-      <h3>Tanya Varsheney</h3>
-      <p class="role">Roll No. : 41710402717</p>
+      <div class="team_member">
+        <div class="team_img">
+          <img
+            src="https://media-exp1.licdn.com/dms/image/C5103AQGljCixw8Nqdg/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=m66FDRvB4Hw5g60dgkaauyBY_roabfF4e28EFRmjUTo">
+        </div>
+        <h3>Chirag Goel</h3>
+        <p class="role">Roll No. : 00410402717</p>
       </div>
-    <div class="team_member">
-      <div class="team_img">
-        <img src="https://media-exp1.licdn.com/dms/image/C5103AQGljCixw8Nqdg/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=m66FDRvB4Hw5g60dgkaauyBY_roabfF4e28EFRmjUTo">
-      </div>
-      <h3>Chirag Goel</h3>
-      <p class="role">Roll No. : 00410402717</p>
     </div>
   </div>
-</div>
 </body>
-       
